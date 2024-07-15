@@ -496,6 +496,8 @@ splunk-kubernetes-logging:
     # This flag specifies if the user wants to use a security context for creating the pods, which will be used to run privileged pods
     securityContext: false
 
+  # Defines securityContext for the pods
+  securityContext:
 
   # List of key/value pairs for metadata purpose.
   # Can be used to define things such as cloud_account_id, cloud_account_region, etc.
@@ -629,7 +631,8 @@ splunk-kubernetes-objects:
 
   # Defines priorityClassName to assign a priority class to pods.
   priorityClassName:
-
+  # Defines securityContext for the pods
+  securityContext:
   # = Kubernetes Connection Configs =
   kubernetes:
     # the URL for calling kubernetes API, by default it will be read from the environment variables
@@ -1047,6 +1050,9 @@ splunk-kubernetes-metrics:
       requests:
         cpu: 200m
         memory: 300Mi
+  # Defines securityContext for the pods
+  deploymentSecurityContext:
+  daemensetSecurityContext:
   # Controls the output buffer for fluentd for the metrics pod
   # Note that, for memory buffer, if `resources.sidecar.limits.memory` is set,
   # the total buffer size should not bigger than the memory limit, it should also

@@ -87,7 +87,7 @@ spec:
         resources:
 {{ toYaml .Values.resources.fluent | indent 12 }}
         securityContext:
-          runAsNonRoot: false
+{{ toYaml .Values.deploymentSecurityContext | indent 10 }}
         volumeMounts:
           - name: conf-configmap
             mountPath: /fluentd/etc

@@ -63,8 +63,7 @@ spec:
         image: {{ template "splunk-kubernetes-logging.image" . }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         securityContext:
-          runAsUser: 0
-          privileged: {{ .Values.kubernetes.securityContext }}
+{{ toYaml .Values.securityContext | indent 10 }}
         env:
           - name: K8S_NODE_NAME
             valueFrom:
